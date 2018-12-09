@@ -4,7 +4,14 @@ import { Link } from "react-router-dom";
 
 import ProjectShowcase from "ProjectShowcase/ProjectShowcase";
 import GlobalLoader from "GlobalLoader/GlobalLoader";
-import img from "images/dipen.jpg";
+import bgImg from "images/mountEverest.jpg";
+import profileImg from "images/dipen.jpg";
+
+import {
+  VerticalTimeline,
+  VerticalTimelineElement
+} from "react-vertical-timeline-component";
+import "react-vertical-timeline-component/style.min.css";
 
 const propTypes = {
   projects: PropTypes.object
@@ -18,56 +25,119 @@ export default class Home extends Component {
   render() {
     return (
       <div class="homepage">
-        <GlobalLoader message="Loading Project Showcase..." loading={false} />
-        <div class="Index" style={{ backgroundImage: `url(${img})` }}>
-          <div class="rekt" />
+        <div class="Index" style={{ backgroundImage: `url(${bgImg})` }}>
           <div class="IndexOverlay" />
           <div class="IndexContent">
-            <h2>Dipen Hamal</h2>
-            <p>Full Stack Developer</p>
-
-            <small>
-              Experienced software developer, creator and a wannabe
-              entrepreneur. Currently contributing as a lead developer for{" "}
-              <a target="_blank" href="https://pujaaaja.com">
-                PujaAaja.com
-              </a>{" "}
-              , project for Krissho Studios.
-              <br />
-              <br /> You can contact me at{" "}
-              <a href="mailto:dipen.hamal@gmail.com">hello@dipenhamal.com</a>
-            </small>
-          </div>
-
-          <div
-            style={{
-              padding: "5em 2em 7em",
-              textAlign: "center",
-              color: "white"
-            }}
-          >
-            <p
-              style={{
-                color: "white",
-                padding: "2em 0",
-                fontSize: "1.15em"
-              }}
-            >
-              Looking for a Full-Stack Developer / Mobile Application Developer?{" "}
-              <br />
-              Reach out to me at{" "}
-              <a href="mailto:dipen.hamal@gmail.com">hello@dipenhamal.com</a>.
-            </p>
-
-            <Link
-              class="button blue"
-              to="/projects"
-              style={{
-                margin: "auto"
-              }}
-            >
-              View All Projects <i class="icon-go" />
-            </Link>
+            <div class="ProfileImage">
+              <img src={profileImg} />
+              <h2>Dipen Hamal</h2>
+              <p>Experienced Software Engineer</p>
+            </div>
+            <div>
+              <VerticalTimeline>
+                <VerticalTimelineElement
+                  className="vertical-timeline-element--work"
+                  date="2011 - present"
+                  iconStyle={{ background: "rgb(33, 150, 243)", color: "#fff" }}
+                >
+                  <h3 className="vertical-timeline-element-title">
+                    Creative Director
+                  </h3>
+                  <h4 className="vertical-timeline-element-subtitle">
+                    Miami, FL
+                  </h4>
+                  <p>
+                    Creative Direction, User Experience, Visual Design, Project
+                    Management, Team Leading
+                  </p>
+                </VerticalTimelineElement>
+                <VerticalTimelineElement
+                  className="vertical-timeline-element--work"
+                  date="2010 - 2011"
+                  iconStyle={{ background: "rgb(33, 150, 243)", color: "#fff" }}
+                >
+                  <h3 className="vertical-timeline-element-title">
+                    Art Director
+                  </h3>
+                  <h4 className="vertical-timeline-element-subtitle">
+                    San Francisco, CA
+                  </h4>
+                  <p>
+                    Creative Direction, User Experience, Visual Design, SEO,
+                    Online Marketing
+                  </p>
+                </VerticalTimelineElement>
+                <VerticalTimelineElement
+                  className="vertical-timeline-element--work"
+                  date="2008 - 2010"
+                  iconStyle={{ background: "rgb(33, 150, 243)", color: "#fff" }}
+                >
+                  <h3 className="vertical-timeline-element-title">
+                    Web Designer
+                  </h3>
+                  <h4 className="vertical-timeline-element-subtitle">
+                    Los Angeles, CA
+                  </h4>
+                  <p>User Experience, Visual Design</p>
+                </VerticalTimelineElement>
+                <VerticalTimelineElement
+                  className="vertical-timeline-element--work"
+                  date="2006 - 2008"
+                  iconStyle={{ background: "rgb(33, 150, 243)", color: "#fff" }}
+                >
+                  <h3 className="vertical-timeline-element-title">
+                    Web Designer
+                  </h3>
+                  <h4 className="vertical-timeline-element-subtitle">
+                    San Francisco, CA
+                  </h4>
+                  <p>User Experience, Visual Design</p>
+                </VerticalTimelineElement>
+                <VerticalTimelineElement
+                  className="vertical-timeline-element--education"
+                  date="April 2013"
+                  iconStyle={{ background: "rgb(233, 30, 99)", color: "#fff" }}
+                >
+                  <h3 className="vertical-timeline-element-title">
+                    Content Marketing for Web, Mobile and Social Media
+                  </h3>
+                  <h4 className="vertical-timeline-element-subtitle">
+                    Online Course
+                  </h4>
+                  <p>Strategy, Social Media</p>
+                </VerticalTimelineElement>
+                <VerticalTimelineElement
+                  className="vertical-timeline-element--education"
+                  date="November 2012"
+                  iconStyle={{ background: "rgb(233, 30, 99)", color: "#fff" }}
+                >
+                  <h3 className="vertical-timeline-element-title">
+                    Agile Development Scrum Master
+                  </h3>
+                  <h4 className="vertical-timeline-element-subtitle">
+                    Certification
+                  </h4>
+                  <p>Creative Direction, User Experience, Visual Design</p>
+                </VerticalTimelineElement>
+                <VerticalTimelineElement
+                  className="vertical-timeline-element--education"
+                  date="2002 - 2006"
+                  iconStyle={{ background: "rgb(233, 30, 99)", color: "#fff" }}
+                >
+                  <h3 className="vertical-timeline-element-title">
+                    Bachelor of Science in Interactive Digital Media Visual
+                    Imaging
+                  </h3>
+                  <h4 className="vertical-timeline-element-subtitle">
+                    Bachelor Degree
+                  </h4>
+                  <p>Creative Direction, Visual Design</p>
+                </VerticalTimelineElement>
+                <VerticalTimelineElement
+                  iconStyle={{ background: "rgb(16, 204, 82)", color: "#fff" }}
+                />
+              </VerticalTimeline>
+            </div>
           </div>
         </div>
       </div>

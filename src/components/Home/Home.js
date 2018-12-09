@@ -8,9 +8,11 @@ import { firebaseConnect, isLoaded, isEmpty } from "react-redux-firebase";
 
 import ProjectShowcase from "ProjectShowcase/ProjectShowcase";
 import GlobalLoader from "GlobalLoader/GlobalLoader";
+import Loader from "Loader/Loader";
 import NotFound from "NotFound/NotFound";
 
-import img from "images/mountEverest.jpg";
+import bannerImg from "images/mountEverest.jpg";
+import profileImg from "images/dipen.png";
 
 const getShowCaseProjects = ({ projects }) => {
   const projectsArray = [];
@@ -22,79 +24,178 @@ const getShowCaseProjects = ({ projects }) => {
     .sort((a, b) => a.order - b.order);
 };
 
-const PersonalInformation = ({ projects }) => {
-  const showcaseProjects =
-    isLoaded(projects) && !isEmpty(projects)
-      ? getShowCaseProjects({ projects })
-      : [];
+const Profile = () => {
   return (
-    <div class="homepage">
-      <GlobalLoader message="Loading Project Showcase..." loading={false} />
-      <div class="Index" style={{ backgroundImage: `url(${img})` }}>
-        <div class="rekt" />
-        <div class="IndexOverlay" />
-        <div class="IndexContent">
-          <h2>Dipen Hamal</h2>
-          <p>Full Stack Developer</p>
+    <div class="ProfileImage">
+      <img src={profileImg} />
+      <h2>Dipen Hamal</h2>
+      <p>Experienced Software Engineer</p>
+      <a
+        class="button orange"
+        target="_blank"
+        href="https://drive.google.com/file/d/1XjtfMnLRF1v4vL7umH6-q10b320De232/view?usp=sharing"
+        style={{ marginTop: "3px", borderBottom: "none" }}
+      >
+        Download My CV <i class="icon-download" />
+      </a>
+      <a
+        class="button blue"
+        href="mailto:dipen.hamal@gmail.com"
+        style={{ marginTop: "-8px", borderBottom: "none" }}
+      >
+        Contact Me <i class="entypo-email" />
+      </a>
+    </div>
+  );
+};
 
-          <small>
-            Experienced software developer, creator and a wannabe entrepreneur.
-            Currently contributing as a lead developer for{" "}
-            <a target="_blank" href="https://pujaaaja.com">
-              PujaAaja.com
-            </a>{" "}
-            , project for Krissho Studios.
-            <br />
-            <br /> You can contact me at{" "}
-            <a href="mailto:dipen.hamal@gmail.com">hello@dipenhamal.com</a>
-          </small>
-        </div>
-      </div>
-      {showcaseProjects.length &&
-        showcaseProjects.map(project => (
-          <ProjectShowcase key={project.id} project={project} />
-        ))}
-      <div
+const Skill = ({ title, skills }) => {
+  return (
+    <div
+      style={{
+        margin: "20px"
+      }}
+    >
+      <h2 style={{ fontSize: "1.5em", color: "#66b7ff" }}>{title}</h2>
+      {skills.map((skill, index) => (
+        <p style={{ textAlign: "center", color: "#c7c7c7" }} key={index}>
+          {index == skills.length - 1 ? (
+            <a
+              target="_blank"
+              href="https://www.linkedin.com/in/dipenh"
+              style={{ borderBottom: "none", color: "#66b7ff" }}
+            >
+              {skill}
+            </a>
+          ) : (
+            skill
+          )}
+        </p>
+      ))}
+    </div>
+  );
+};
+
+const Skills = () => {
+  return (
+    <div style={{ display: "flex", justifyContent: "space-evenly" }}>
+      <Skill
+        title="Key Competencies"
+        skills={[
+          "Responsibility",
+          "Teamwork",
+          "Decision Making",
+          "Communication",
+          "Problem Solving",
+          "Technical Skills",
+          "& More ..."
+        ]}
+      />
+      <Skill
+        title="Tech Skills"
+        skills={[
+          "React",
+          "ReactNative",
+          "Java",
+          "Javascript",
+          "REST",
+          "CMS",
+          "& More..."
+        ]}
+      />
+
+      <Skill
+        title="Experience"
+        skills={[
+          "Agile Application Development",
+          "Full-Stack Development",
+          "Mobile Application Development",
+          "Project Management",
+          "& More..."
+        ]}
+      />
+    </div>
+  );
+};
+
+const PersonalInformation = () => {
+  return (
+    <div style={{ display: "flex", justifyContent: "space-between" }}>
+      <small>
+        <p>Helsinki based software developer</p>
+        <p>Creator</p>
+        <p>Entrepreneur</p>
+        Currently working on a personal project{" "}
+        <a target="_blank" href="https://pujaaaja.com">
+          PujaAaja.com
+        </a>{" "}
+        , project for Krissho Studios. <br />
+      </small>{" "}
+      <Profile />
+    </div>
+  );
+};
+
+const HireMe = () => {
+  return (
+    <div
+      style={{
+        textAlign: "center",
+        color: "white"
+      }}
+    >
+      <p
         style={{
-          padding: "5em 2em 7em",
-          textAlign: "center",
-          color: "white"
+          color: "white",
+          padding: "1em 0em 2em",
+          fontSize: "1.15em"
         }}
       >
-        <p
-          style={{
-            color: "white",
-            padding: "2em 0",
-            fontSize: "1.15em"
-          }}
-        >
-          Looking for a Full-Stack Developer / Mobile Application Developer?{" "}
-          <br />
-          Reach out to me at{" "}
-          <a href="mailto:dipen.hamal@gmail.com">hello@dipenhamal.com</a>.
-        </p>
-
+        Looking to hire or just want to say hello? <br />
+        Reach out to me at{" "}
+        <a href="mailto:dipen.hamal@gmail.com">dipen.hamal@gmail.com</a>.
+      </p>
+    </div>
+  );
+};
+const Showcase = ({ projects }) => {
+  if (!isLoaded(projects)) return <Loader />;
+  const showcaseProjects = !isEmpty(projects)
+    ? getShowCaseProjects({ projects })
+    : [];
+  if (showcaseProjects.length) {
+    return (
+      <div>
+        {showcaseProjects.map(project => (
+          <ProjectShowcase key={project.id} project={project} />
+        ))}
         <Link
           class="button blue"
           to="/projects"
           style={{
-            margin: "auto"
+            marginTop: "4em"
           }}
         >
           View All Projects <i class="icon-go" />
         </Link>
       </div>
-    </div>
-  );
+    );
+  }
+  return null;
 };
 
 const Home = ({ firebase, projects }) => {
   return (
     <div class="homepage">
-      {!isLoaded(projects) && (
-        <GlobalLoader message="Loading Project Showcase..." loading={true} />
-      )}
-      <PersonalInformation projects={projects} />
+      <div class="Index" style={{ backgroundImage: `url(${bannerImg})` }}>
+        <div class="IndexOverlay" />
+        <div class="IndexContent">
+          <PersonalInformation />
+          <Skills />
+        </div>
+      </div>
+      <Showcase projects={projects} />
+      <HireMe />
     </div>
   );
 };

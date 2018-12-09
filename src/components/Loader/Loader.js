@@ -6,15 +6,7 @@ const propTypes = {};
 const defaultProps = {};
 
 class Loader extends Component {
-  constructor(props) {
-    super(props);
-
-    this.state = {};
-  }
-
   render() {
-    // return null;
-
     return (
       <div>
         <div class="Loader">
@@ -37,8 +29,6 @@ class Loader extends Component {
             <div class="dotb" />
           </div>
         </div>
-
-        <p>Loading Projects...</p>
       </div>
     );
   }

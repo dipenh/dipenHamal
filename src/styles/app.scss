@@ -503,9 +503,8 @@ $two: rgba(darken($black-pearl, 6%), 0.8);
   .IndexContent {
     display: flex;
     flex-direction: column;
-    justify-content: center;
     position: relative;
-    height: 100vh;
+    height: 95vh;
     padding: 3em 5em;
     text-align: left;
     z-index: 10;
@@ -521,19 +520,19 @@ $two: rgba(darken($black-pearl, 6%), 0.8);
       // color: #DA5269;
       color: white;
       // color: $green;
-      text-align: left;
+      text-align: center;
       @include logo-font;
-      font-size: 3rem;
+      font-size: 1rem;
     }
 
     p {
-      font-size: 5rem;
+      font-size: 0.9rem;
       text-transform: uppercase;
       letter-spacing: 1px;
       font-weight: bold;
       color: $pastel-green;
       margin: 0;
-      text-align: left;
+      text-align: center;
       font-family: 'Helvetica', sans-serif;
       line-height: 1.25;
     }
@@ -545,6 +544,30 @@ $two: rgba(darken($black-pearl, 6%), 0.8);
       font-size: 1.1em;
       max-width: 35vw;
       color: darken(white, 30%);
+    }
+  }
+  .ProfileImage {
+    align-self: flex-end;
+    text-align: -webkit-center;
+    img {
+      width: 150px;
+      height: 150px;
+      border-radius: 75px;
+    }
+    h2 {
+      color: white;
+      @include logo-font;
+      font-size: 1.5rem;
+    }
+    p {
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      font-weight: bold;
+      color: $pastel-green;
+      margin: 0;
+      font-family: 'Helvetica', sans-serif;
+      line-height: 1.25;
     }
   }
 }
