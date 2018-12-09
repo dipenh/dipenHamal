@@ -10,7 +10,7 @@ module.exports = {
     new CleanWebpackPlugin(["public"]),
     new HtmlWebpackPlugin({
       title: "Dipen Hamal",
-      preview: "/src/images/preview.png",
+      preview: "/src/images/preview.JPG",
       template: "layout.ejs"
     })
   ],

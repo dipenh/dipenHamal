@@ -4,7 +4,6 @@ import { BrowserRouter as Router, Route } from "react-router-dom";
 
 import "styles/app.scss";
 import "styles/icons.css";
-import "images/preview.png";
 
 import { Provider } from "react-redux";
 import { compose, combineReducers, createStore } from "redux";
