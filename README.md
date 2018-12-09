@@ -1,5 +1,5 @@
 ## dipenhamal.com.np
 
-My personal site - powered by React and Firebase
+My personal site - built with React and Firebase
 
-![Diepn Hamal](https://github.com/dipenh/dipenHamal/blob/master/src/images/preview.JPG)
+![Dipen Hamal](https://github.com/dipenh/dipenHamal/blob/master/src/images/preview.JPG)
