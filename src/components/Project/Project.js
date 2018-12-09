@@ -15,27 +15,12 @@ const defaultProps = {};
 
 const wrapProject = (project, content) => {
   if (!project.github_url && !project.external_url) {
-    return (
-      <Link
-        data-metrics-event-name="projectClick"
-        data-metrics-project-name={project.name}
-        data-metrics-project-url={`/projects/${project.id}`}
-        to={`/projects/${project.id}`}
-      >
-        {content}
-      </Link>
-    );
+    return <Link to={`/projects/${project.id}`}>{content}</Link>;
   }
 
   if (project.type === "github" && project.github_url) {
     return (
-      <a
-        data-metrics-event-name="projectClick"
-        data-metrics-project-name={project.name}
-        data-metrics-project-url={project.github_url}
-        target="_blank"
-        href={project.github_url}
-      >
+      <a target="_blank" href={project.github_url}>
         {content}
       </a>
     );
@@ -43,13 +28,7 @@ const wrapProject = (project, content) => {
 
   if (project.external_url) {
     return (
-      <a
-        data-metrics-event-name="projectClick"
-        data-metrics-project-name={project.name}
-        data-metrics-project-url={project.external_url}
-        target="_blank"
-        href={project.external_url}
-      >
+      <a target="_blank" href={project.external_url}>
         {content}
       </a>
     );

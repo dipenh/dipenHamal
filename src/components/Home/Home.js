@@ -7,9 +7,7 @@ import { compose } from "redux";
 import { firebaseConnect, isLoaded, isEmpty } from "react-redux-firebase";
 
 import ProjectShowcase from "ProjectShowcase/ProjectShowcase";
-import GlobalLoader from "GlobalLoader/GlobalLoader";
 import Loader from "Loader/Loader";
-import NotFound from "NotFound/NotFound";
 
 import bannerImg from "images/mountEverest.jpg";
 import profileImg from "images/dipen.png";
@@ -111,6 +109,7 @@ const Skills = () => {
           "Full-Stack Development",
           "Mobile Application Development",
           "Project Management",
+          "Start-Ups",
           "& More..."
         ]}
       />
