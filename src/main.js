@@ -20,10 +20,7 @@ const rootReducer = combineReducers({
 
 // Firebase config
 const firebaseConfig = {
-  apiKey: "AIzaSyB1R4E9kjFbTrci61C1unCbTeuvoEIjhuw",
-  authDomain: "dipen-hamal.firebaseapp.com",
-  databaseURL: "https://dipen-hamal.firebaseio.com",
-  storageBucket: "dipen-hamal.appspot.com"
+  
 };
 firebase.initializeApp(firebaseConfig);
 
