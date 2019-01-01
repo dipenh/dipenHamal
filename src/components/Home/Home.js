@@ -124,11 +124,9 @@ const PersonalInformation = () => {
         <p>Helsinki based software developer</p>
         <p>Creator</p>
         <p>Entrepreneur</p>
-        Currently working on a personal project{" "}
-        <a target="_blank" href="https://pujaaaja.com">
-          PujaAaja.com
-        </a>{" "}
-        , project for Krissho Studios. <br />
+        <hr/>
+        Currently working on personal projects. <br />
+        Open for exciting opportunities. <br />
       </small>{" "}
       <Profile />
     </div>

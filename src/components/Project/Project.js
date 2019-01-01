@@ -45,6 +45,9 @@ function Project(props) {
       {project.type === "github" ? <small class="tag">Github</small> : null}
 
       {project.type === "app" ? <small class="app tag">App</small> : null}
+      {project.type === "website" ? (
+        <small class="website tag">Website</small>
+      ) : null}
 
       {project.type === "design" ? (
         <small class="design tag">Design</small>
